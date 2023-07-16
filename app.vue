@@ -1,5 +1,15 @@
 <template>
-  <div>
-    <NuxtWelcome />
+  <div class="container">
+    <div class="row"> Connected: {{ state.connected }} </div>
+    <div class="row"> {{ message }} </div>
   </div>
-</template>
+  </template>
+  
+  <script setup>
+  import { state } from "@/io/client"
+  
+  const message = computed(() => {
+    return state.message;
+  })
+
+  </script>

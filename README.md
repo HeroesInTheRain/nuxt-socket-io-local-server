@@ -35,32 +35,17 @@ pnpm run dev
 yarn dev
 ```
 
-## Production
+## Run server for testing
 
-Build the application for production:
+1. Add your code for testing on client side
 
-```bash
-# npm
-npm run build
+2. Add your code for testing on server side
+    - Don't forget to add the corresponding event to the socket on server side (this project)
 
-# pnpm
-pnpm run build
+3. Run THIS PROJECT FIRST so the server would be at `http://localhost:3000`
+    - Otherwise, you must adjust the server path on the client side (the main project you are testing)
 
-# yarn
-yarn build
-```
+4. Run the project containing the client you want to test
 
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+5. Once the server and client are connected, you should see a message containing the created socket id on `http://localhost:3000`
+    - If the message is nos visible, check the port inside @/io/client.js inside this project
