@@ -2,6 +2,7 @@ import { io } from "socket.io-client";
 
 export const state = reactive({
   connected: false,
+  message: ""
 });
 
 export var socket = null;

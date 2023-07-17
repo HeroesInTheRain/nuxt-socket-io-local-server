@@ -8,11 +8,16 @@ export default (nuxtServer: NuxtServer) => {
         origin: "*"
       }
     });
+    
     io.on("connection", (socket: Socket) => {
       socket.emit("message", "Server connected");
 
-      socket.on("message", (data) => {
-        socket.emit("message", data);
+      socket.on("notification", (data) => {
+        socket.emit("notification", data);
+      });
+
+      socket.on("custom_event", (data) => {
+        socket.emit("custom_event", data);
       });
     });
   }
