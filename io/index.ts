@@ -19,6 +19,15 @@ export default (nuxtServer: NuxtServer) => {
       socket.on("custom_event", (data) => {
         socket.emit("custom_event", data);
       });
+
+      socket.on("join", (room) => {
+        let roomList = Array.from(socket.rooms);
+        if(roomList.indexOf(room) == -1){
+          if(roomList.length > 1)
+            socket.leave(roomList[roomList.length - 1])
+          socket.join(room)
+        }
+      });
     });
   }
 };
